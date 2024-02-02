@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: Basic_Calc
+Version: 0.1
+Summary: My first package, a basic calculator.
+Home-page: https://github.com/maky5545/Basic_calc
+Author: maky5545
+Author-email: definingawsometeam@gmao;.com
+License: MIT
+License-File: LICENSE.txt
