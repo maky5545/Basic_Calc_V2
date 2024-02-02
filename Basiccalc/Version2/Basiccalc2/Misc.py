@@ -3,7 +3,7 @@ from Checks import calcFileDirec, fileName
 
 def fileLocation():
     print("A calculation files with all of the equations and answers has"
-       " been created here: " + calcFileDirec + fileName)
+       " been created here: " + "\n" + calcFileDirec + fileName)
 
 
 # clears the console
