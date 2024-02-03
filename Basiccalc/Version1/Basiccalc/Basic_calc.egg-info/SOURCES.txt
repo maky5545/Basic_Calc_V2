@@ -1,8 +1,0 @@
-Basic_Calc.py
-LICENSE.txt
-setup.py
-Basic_Calc.egg-info/PKG-INFO
-Basic_Calc.egg-info/SOURCES.txt
-Basic_Calc.egg-info/dependency_links.txt
-Basic_Calc.egg-info/not-zip-safe
-Basic_Calc.egg-info/top_level.txt
