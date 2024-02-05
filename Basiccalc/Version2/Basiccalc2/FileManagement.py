@@ -5,18 +5,17 @@ from Misc import consoleSleep2
 
 userName = os.getlogin()
 dateAndTime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-calcFileDirec = (f"C:\\Users\\{userName}\\Documents\\Python Files\\Basic Calculator\\Operations\\")
+calcFileDirec = (os.path.dirname(os.path.abspath(__file__)))
 checkDirecExists = os.path.isdir(calcFileDirec)
+calcFileDirec = calcFileDirec + "\\Files\\"
 fileName = f"calc_{dateAndTime}.txt"
-textCounter = 0
-lineCounter = 1
+checkFileExists = os.path.isfile(f"{calcFileDirec}{fileName}")
 tryMakeDir = 0
 tryFindDir = 0
+testLoop = 0
 
 # Create Log Files and write output to them
-def outputFileCreator(value1, value2, operation, answer):
-    global lineCounter
-    global textCounter
+def outputFileCreator(lineCounter, value1, value2, operation, answer):
     global tryMakeDir
     global createFile
     global tryFindDir
@@ -36,34 +35,12 @@ def outputFileCreator(value1, value2, operation, answer):
                     consoleSleep2()
                     exit()
                             
-    elif checkDirecExists == True:
+    else:
         while True:
-            try:
-                createFile = open(calcFileDirec + fileName, "w")
+                createFile = open(f"{calcFileDirec}\\{fileName}", "a")
+                createFile.write(f"{lineCounter}. {value1} {operation} {value2} = {answer} \n\n")
                 createFile.close()
                 break
-            except FileNotFoundError:
-                if tryFindDir < 3:
-                    print("Directory not found! Trying again...")
-                    consoleSleep2()
-                else:
-                    print("Directory not found! Exiting...")
-                    consoleSleep2()
-                    exit()
-    
-    while textCounter == 0:
-        createFile = open(calcFileDirec + fileName, "a")
-        createFile.write(f"{str(lineCounter)}. {value1} {operation} {value2} = {answer} \n")
-        createFile.close()
-        textCounter += 1
-        lineCounter += 1
-        break
-    while textCounter > 0:
-        createFile = open(calcFileDirec + fileName, "a")
-        createFile.write(f"\n{str(lineCounter)}. {value1} {operation} {value2} = {answer} \n")
-        createFile.close()
-        lineCounter += 1
-        break
 
 def fileLocation():
     print("\nA calculation files with all of the equations and answers has"
