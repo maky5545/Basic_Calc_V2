@@ -1,8 +1,10 @@
 # Imports
+from __future__ import division
 import re
 from FileManagement import outputFileCreator, fileLocation, openFileLocation
-from MathOperations import calcOperations, convert_to_number
+from MathOperations import calcOperations, convert_to_number, makeDivisionInt
 from Misc import clear_console, consoleSleep2
+
 
 # Define General Variables
 operations = ["+", "-", "/", "*"]
@@ -36,6 +38,7 @@ while True:
         if operator in operations:
             opAnswer = calcOperations(firstNumber, secondNumber, operator)
             convert_to_number(opAnswer)
+            opAnswer = makeDivisionInt(opAnswer)
             break
         else:
             input("\033[1;31mERROR: Invalid operation, press enter to try again.\033[0m")
@@ -43,6 +46,6 @@ while True:
             resetLoop = True
             continue
     
-    print(f"\n{firstNumber} {operator} {secondNumber} = {round(opAnswer, 3)}")
-    outputFileCreator(lineCounter, firstNumber, secondNumber, operator, round(opAnswer, 3))
+    print(f"\n{firstNumber} {operator} {secondNumber} = {opAnswer}")
+    outputFileCreator(lineCounter, firstNumber, secondNumber, operator, opAnswer)
     lineCounter += 1
