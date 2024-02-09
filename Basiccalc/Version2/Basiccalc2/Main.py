@@ -5,10 +5,9 @@ from FileManagement import outputFileCreator, fileLocation, openFileLocation
 from MathOperations import calcOperations, convert_to_number, makeDivisionInt
 from Misc import clear_console, consoleSleep2
 
-
 # Define General Variables
-operations = ["+", "-", "/", "*"]
 lineCounter = 1
+operations = ["+", "-", "/", "*"]
 
 # Intro Strings
 print(str.center("Welcome to the calculator!", 50,))
